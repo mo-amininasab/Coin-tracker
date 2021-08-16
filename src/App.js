@@ -40,6 +40,7 @@ function App() {
         </form>
       </section>
       <div className="m-12">
+
         {filteredCoins.map((coin) => (
           <Coin
             key={coin.id}
@@ -49,7 +50,7 @@ function App() {
             volume={coin.total_volume}
             price={coin.current_price}
             priceChange={coin.price_change_percentage_24h}
-            marketcap={coin.market_cap}
+            marketCap={coin.market_cap}
           ></Coin>
         ))}
       </div>
