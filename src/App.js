@@ -19,6 +19,7 @@ function App() {
     const fetchCoinsFromAPI = async () => {
       const data = await fetchCoins();
       dispatch(currenciesActions.setCurrencies(data));
+      dispatch(currenciesActions.isLoadingHandler())
     };
 
     fetchCoinsFromAPI();
@@ -29,7 +30,7 @@ function App() {
       <section>
         <SearchBox />
       </section>
-      <section className="lg:m-12">
+      <section className="m-12">
         <Coin />
       </section>
       <Footer />

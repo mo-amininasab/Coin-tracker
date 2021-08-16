@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 import CoinsSkeleton from "./CoinsSkeleton";
 
 function Coin() {
+  const isLoading = useSelector((state) => state.currencies.isLoading);
   const fetchedCurrencies = useSelector((state) => state.currencies.currencies);
   const userSearch = useSelector((state) => state.currencies.userSearch);
   let filteredCurrencies = "";
@@ -22,7 +23,7 @@ function Coin() {
 
   return (
     <div className="border-gray-200 rounded-sm overflow-hidden font-Titillium text-xs sm:text-sm md:text-md overflow-x-scroll overflow-y-scroll h-screen md:overflow-x-hidden mx-auto">
-      {fetchedCurrencies !== undefined ? (
+      {!isLoading ? (
         <table className="w-full divide-y divide-gray-200 text-white">
           <thead className="bg-primary text-left">
             <tr>

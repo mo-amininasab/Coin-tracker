@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   currencies: [],
   userSearch: "",
+  isLoading: true,
 };
 
 const currenciesSlice = createSlice({
@@ -14,6 +15,9 @@ const currenciesSlice = createSlice({
     },
     userSearchChangeHandler(state, action) {
       state.userSearch = action.payload;
+    },
+    isLoadingHandler(state) {
+      state.isLoading = false;
     },
   },
 });
