@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 // redux
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { currenciesActions } from "./store/currencies";
 
 // api
@@ -29,7 +29,7 @@ function App() {
       <section>
         <SearchBox />
       </section>
-      <section className="m-6">
+      <section className="lg:m-12">
         <Coin />
       </section>
       <Footer />

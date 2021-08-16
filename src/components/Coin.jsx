@@ -3,45 +3,49 @@ import React from "react";
 // redux
 import { useSelector } from "react-redux";
 
+// components
+import CoinsSkeleton from "./CoinsSkeleton";
+
 function Coin() {
   const fetchedCurrencies = useSelector((state) => state.currencies.currencies);
   const userSearch = useSelector((state) => state.currencies.userSearch);
-  const filteredCurrencies = Object.values(fetchedCurrencies).filter(
-    (currency) =>
+  let filteredCurrencies = "";
+  if (fetchedCurrencies) {
+    filteredCurrencies = Object.values(fetchedCurrencies).filter((currency) =>
       currency.name
         .trim()
         .toLowerCase()
         .includes(userSearch.trim().toLowerCase())
-  );
+    );
+  }
+  console.log(fetchedCurrencies);
 
   return (
     <div className="border-gray-200 rounded-sm overflow-hidden font-Titillium text-xs sm:text-sm md:text-md overflow-x-scroll overflow-y-scroll h-screen md:overflow-x-hidden mx-auto">
-      <table className="w-full divide-y divide-gray-200 text-white">
-        <thead className="bg-primary text-left">
-          <tr>
-            <th className="w-24 whitespace-nowrap md:w-40 px-3 py-2 text-left text-xs md:text-sm font-medium text-gray-300 uppercase tracking-wider">
-              Coin
-            </th>
-            <th className="w-10 whitespace-nowrap px-3 py-2 text-left text-xs md:text-sm font-medium text-gray-300 uppercase tracking-wider hidden md:block">
-              Symbol
-            </th>
-            <th className="w-min whitespace-nowrap px-3 py-2 text-left text-xs md:text-sm font-medium text-gray-300 uppercase tracking-wider">
-              Price
-            </th>
-            <th className="w-36 whitespace-nowrap px-3 py-2 text-left text-xs md:text-sm font-medium text-gray-300 uppercase tracking-wider">
-              Total Volume
-            </th>
-            <th className="w-15 whitespace-nowrap px-3 py-2 text-left text-xs md:text-sm font-medium text-gray-300 uppercase tracking-wider">
-              24H
-            </th>
-            <th className="w-36 whitespace-nowrap px-3 py-2 text-left text-xs md:text-sm font-medium text-gray-300 uppercase tracking-wider">
-              Mkt Cap
-            </th>
-          </tr>
-        </thead>
-        {!fetchedCurrencies ? (
-          <p>Loading...</p>
-        ) : (
+      {fetchedCurrencies !== undefined ? (
+        <table className="w-full divide-y divide-gray-200 text-white">
+          <thead className="bg-primary text-left">
+            <tr>
+              <th className="w-24 whitespace-nowrap md:w-40 px-3 py-2 text-left text-xs md:text-sm font-medium text-gray-300 uppercase tracking-wider">
+                Coin
+              </th>
+              <th className="w-10 whitespace-nowrap px-3 py-2 text-left text-xs md:text-sm font-medium text-gray-300 uppercase tracking-wider hidden md:block">
+                Symbol
+              </th>
+              <th className="w-min whitespace-nowrap px-3 py-2 text-left text-xs md:text-sm font-medium text-gray-300 uppercase tracking-wider">
+                Price
+              </th>
+              <th className="w-36 whitespace-nowrap px-3 py-2 text-left text-xs md:text-sm font-medium text-gray-300 uppercase tracking-wider">
+                Total Volume
+              </th>
+              <th className="w-15 whitespace-nowrap px-3 py-2 text-left text-xs md:text-sm font-medium text-gray-300 uppercase tracking-wider">
+                24H
+              </th>
+              <th className="w-36 whitespace-nowrap px-3 py-2 text-left text-xs md:text-sm font-medium text-gray-300 uppercase tracking-wider">
+                Mkt Cap
+              </th>
+            </tr>
+          </thead>
           <tbody className="divide-y divide-gray-600 text-left">
             {filteredCurrencies.map((currency) => (
               <tr key={currency.id}>
@@ -78,8 +82,10 @@ function Coin() {
               </tr>
             ))}
           </tbody>
-        )}
-      </table>
+        </table>
+      ) : (
+        <CoinsSkeleton />
+      )}
     </div>
   );
 }
