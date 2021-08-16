@@ -19,22 +19,22 @@ function Coin() {
       <table className="w-full divide-y divide-gray-200 text-white">
         <thead className="bg-primary text-left">
           <tr>
-            <th className="px-3 py-2 text-left text-xs md:text-sm font-medium text-gray-300 uppercase tracking-wider">
+            <th className="w-24 whitespace-nowrap md:w-40 px-3 py-2 text-left text-xs md:text-sm font-medium text-gray-300 uppercase tracking-wider">
               Coin
             </th>
-            <th className="px-3 py-2 text-left text-xs md:text-sm font-medium text-gray-300 uppercase tracking-wider hidden md:block">
+            <th className="w-10 whitespace-nowrap px-3 py-2 text-left text-xs md:text-sm font-medium text-gray-300 uppercase tracking-wider hidden md:block">
               Symbol
             </th>
-            <th className="px-3 py-2 text-left text-xs md:text-sm font-medium text-gray-300 uppercase tracking-wider">
+            <th className="w-min whitespace-nowrap px-3 py-2 text-left text-xs md:text-sm font-medium text-gray-300 uppercase tracking-wider">
               Price
             </th>
-            <th className="px-3 py-2 text-left text-xs md:text-sm font-medium text-gray-300 uppercase tracking-wider">
+            <th className="w-36 whitespace-nowrap px-3 py-2 text-left text-xs md:text-sm font-medium text-gray-300 uppercase tracking-wider">
               Total Volume
             </th>
-            <th className="px-3 py-2 text-left text-xs md:text-sm font-medium text-gray-300 uppercase tracking-wider">
+            <th className="w-15 whitespace-nowrap px-3 py-2 text-left text-xs md:text-sm font-medium text-gray-300 uppercase tracking-wider">
               24H
             </th>
-            <th className="px-3 py-2 text-left text-xs md:text-sm font-medium text-gray-300 uppercase tracking-wider">
+            <th className="w-36 whitespace-nowrap px-3 py-2 text-left text-xs md:text-sm font-medium text-gray-300 uppercase tracking-wider">
               Mkt Cap
             </th>
           </tr>
@@ -58,10 +58,10 @@ function Coin() {
                   {currency.symbol}
                 </td>
                 <td className="px-3 py-2">
-                  $ {currency.current_price.toLocaleString()}
+                  ${currency.current_price.toLocaleString()}
                 </td>
                 <td className="px-3 py-2">
-                  $ {currency.total_volume.toLocaleString()}
+                  ${currency.total_volume.toLocaleString()}
                 </td>
                 {currency.price_change_percentage_24h < 0 ? (
                   <td className="px-3 py-2 text-red-500">
@@ -73,7 +73,7 @@ function Coin() {
                   </td>
                 )}
                 <td className="px-3 py-2">
-                  $ {currency.market_cap.toLocaleString()}
+                  ${currency.market_cap.toLocaleString()}
                 </td>
               </tr>
             ))}
