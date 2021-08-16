@@ -28,16 +28,18 @@ function App() {
 
   return (
     <div>
-      <div className="m-12">
-        <form className="mx-auto mb-10 w-min">
+      <section>
+        <form className="mx-auto my-10 w-min">
           <input
             type="text"
             placeholder="Search"
             value={search}
             onChange={handleChange}
-            className="px-2 py-1 rounded-sm w-56"
+            className="px-3 py-2 rounded-sm w-64 border-none focus:outline-none bg-primary placeholder-gray-100"
           ></input>
         </form>
+      </section>
+      <div className="m-12">
         {filteredCoins.map((coin) => (
           <Coin
             key={coin.id}
