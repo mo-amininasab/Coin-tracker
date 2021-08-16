@@ -20,19 +20,19 @@ function Coin() {
         <thead className="bg-primary text-left">
           <tr>
             <th className="px-3 py-2 text-left text-xs md:text-sm font-medium text-gray-300 uppercase tracking-wider">
-              Currency
+              Coin
             </th>
-            <th className="px-3 py-2 text-left text-xs md:text-sm font-medium text-gray-300 uppercase tracking-wider">
+            <th className="px-3 py-2 text-left text-xs md:text-sm font-medium text-gray-300 uppercase tracking-wider hidden md:block">
               Symbol
             </th>
             <th className="px-3 py-2 text-left text-xs md:text-sm font-medium text-gray-300 uppercase tracking-wider">
               Price
             </th>
             <th className="px-3 py-2 text-left text-xs md:text-sm font-medium text-gray-300 uppercase tracking-wider">
-              Volume
+              Total Volume
             </th>
             <th className="px-3 py-2 text-left text-xs md:text-sm font-medium text-gray-300 uppercase tracking-wider">
-              Price Change
+              24H
             </th>
             <th className="px-3 py-2 text-left text-xs md:text-sm font-medium text-gray-300 uppercase tracking-wider">
               Mkt Cap
@@ -45,15 +45,18 @@ function Coin() {
           <tbody className="divide-y divide-gray-600 text-left">
             {filteredCurrencies.map((currency) => (
               <tr key={currency.id}>
-                <td className="flex px-3 py-2 items-center">
+                <td className="flex px-3 py-2 items-center uppercase">
                   <img
                     src={currency.image}
                     alt="currency"
                     className="w-7 h-7 mr-4"
                   />
-                  {currency.name}
+                  <span className="mr-6 hidden md:block">{currency.name}</span>
+                  <span className="md:hidden">{currency.symbol}</span>
                 </td>
-                <td className="px-3 py-2 uppercase">{currency.symbol}</td>
+                <td className="px-3 py-2 uppercase hidden md:table-cell">
+                  {currency.symbol}
+                </td>
                 <td className="px-3 py-2">
                   $ {currency.current_price.toLocaleString()}
                 </td>
