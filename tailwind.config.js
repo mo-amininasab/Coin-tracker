@@ -4,10 +4,12 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        Titillium: ['Titillium Web']
+        Titillium: ['Titillium Web'],
+        georama: ["Georama"],
       },
       colors: {
-        primary: '#0F4C75'
+        primary: '#0F4C75',
+        background: '#1B262C'
       }
     },
   },

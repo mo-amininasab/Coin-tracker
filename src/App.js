@@ -10,6 +10,7 @@ import { fetchCoins } from "./api/index";
 // components
 import Coin from "./components/Coin";
 import SearchBox from "./components/SearchBox";
+import Footer from "./components/Footer";
 
 function App() {
   const dispatch = useDispatch();
@@ -28,9 +29,10 @@ function App() {
       <section>
         <SearchBox />
       </section>
-      <div className="m-12">
+      <section className="m-12">
         <Coin />
-      </div>
+      </section>
+      <Footer />
     </div>
   );
 }
