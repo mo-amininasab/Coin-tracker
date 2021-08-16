@@ -3,6 +3,9 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      fontFamily: {
+        Titillium: ['Titillium Web']
+      },
       colors: {
         primary: '#0F4C75'
       }

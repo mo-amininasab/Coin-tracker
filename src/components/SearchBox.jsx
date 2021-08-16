@@ -13,7 +13,7 @@ function SearchBox() {
   };
 
   return (
-    <form className="mx-auto my-10 w-min">
+    <form className="mx-auto my-10 w-min font-Titillium">
       <input
         type="text"
         placeholder="Search"
