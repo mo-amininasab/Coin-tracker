@@ -17,7 +17,6 @@ function App() {
 
     fetchCoinsFromAPI();
   }, []);
-  console.log('coins',coins);
 
   const handleChange = (e) => {
     setSearch(e.target.value);
@@ -29,14 +28,14 @@ function App() {
 
   return (
     <div>
-      <div>
-        <h1 className="text-white">Search a currency</h1>
-        <form>
+      <div className="m-12">
+        <form className="mx-auto mb-10 w-min">
           <input
             type="text"
             placeholder="Search"
             value={search}
             onChange={handleChange}
+            className="px-2 py-1 rounded-sm w-56"
           ></input>
         </form>
         {filteredCoins.map((coin) => (
