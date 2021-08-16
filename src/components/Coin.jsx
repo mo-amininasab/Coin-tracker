@@ -15,26 +15,26 @@ function Coin() {
   );
 
   return (
-    <div className="border-gray-200 rounded-sm overflow-hidden font-Titillium">
+    <div className="border-gray-200 rounded-sm overflow-hidden font-Titillium text-xs sm:text-sm md:text-md overflow-x-scroll md:overflow-x-hidden mx-auto">
       <table className="w-full divide-y divide-gray-200 text-white">
         <thead className="bg-primary text-left">
           <tr>
-            <th className="px-3 py-2 text-left text-sm font-medium text-gray-300 uppercase tracking-wider">
+            <th className="px-3 py-2 text-left text-xs md:text-sm font-medium text-gray-300 uppercase tracking-wider">
               Currency
             </th>
-            <th className="px-3 py-2 text-left text-sm font-medium text-gray-300 uppercase tracking-wider">
+            <th className="px-3 py-2 text-left text-xs md:text-sm font-medium text-gray-300 uppercase tracking-wider">
               Symbol
             </th>
-            <th className="px-3 py-2 text-left text-sm font-medium text-gray-300 uppercase tracking-wider">
+            <th className="px-3 py-2 text-left text-xs md:text-sm font-medium text-gray-300 uppercase tracking-wider">
               Price
             </th>
-            <th className="px-3 py-2 text-left text-sm font-medium text-gray-300 uppercase tracking-wider">
+            <th className="px-3 py-2 text-left text-xs md:text-sm font-medium text-gray-300 uppercase tracking-wider">
               Volume
             </th>
-            <th className="px-3 py-2 text-left text-sm font-medium text-gray-300 uppercase tracking-wider">
+            <th className="px-3 py-2 text-left text-xs md:text-sm font-medium text-gray-300 uppercase tracking-wider">
               Price Change
             </th>
-            <th className="px-3 py-2 text-left text-sm font-medium text-gray-300 uppercase tracking-wider">
+            <th className="px-3 py-2 text-left text-xs md:text-sm font-medium text-gray-300 uppercase tracking-wider">
               Mkt Cap
             </th>
           </tr>
