@@ -39,27 +39,43 @@ function Coin() {
             </th>
           </tr>
         </thead>
-        <tbody className="divide-y divide-gray-200 text-left">
-          {filteredCurrencies.map((currency) => (
-            <tr key={currency.id}>
-              <td className="flex px-3 py-2 items-center">
-                <img
-                  src={currency.image}
-                  alt="currency"
-                  className="w-7 h-7 mr-4"
-                />
-                {currency.name}
-              </td>
-              <td className="px-3 py-2 uppercase">{currency.symbol}</td>
-              <td className="px-3 py-2">{currency.current_price}</td>
-              <td className="px-3 py-2">{currency.total_volume}</td>
-              <td className="px-3 py-2">
-                {currency.price_change_percentage_24h}
-              </td>
-              <td className="px-3 py-2">{currency.market_cap}</td>
-            </tr>
-          ))}
-        </tbody>
+        {!fetchedCurrencies ? (
+          <p>Loading...</p>
+        ) : (
+          <tbody className="divide-y divide-gray-200 text-left">
+            {filteredCurrencies.map((currency) => (
+              <tr key={currency.id}>
+                <td className="flex px-3 py-2 items-center">
+                  <img
+                    src={currency.image}
+                    alt="currency"
+                    className="w-7 h-7 mr-4"
+                  />
+                  {currency.name}
+                </td>
+                <td className="px-3 py-2 uppercase">{currency.symbol}</td>
+                <td className="px-3 py-2">
+                  $ {currency.current_price.toLocaleString()}
+                </td>
+                <td className="px-3 py-2">
+                  $ {currency.total_volume.toLocaleString()}
+                </td>
+                {currency.price_change_percentage_24h < 0 ? (
+                  <td className="px-3 py-2 text-red-500">
+                    {currency.price_change_percentage_24h.toLocaleString()} %
+                  </td>
+                ) : (
+                  <td className="px-3 py-2 text-green-500">
+                    {currency.price_change_percentage_24h.toLocaleString()} %
+                  </td>
+                )}
+                <td className="px-3 py-2">
+                  $ {currency.market_cap.toLocaleString()}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        )}
       </table>
     </div>
   );
