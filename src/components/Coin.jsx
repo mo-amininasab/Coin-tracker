@@ -15,7 +15,7 @@ function Coin() {
   );
 
   return (
-    <div className="border-gray-200 rounded-sm overflow-hidden font-Titillium text-xs sm:text-sm md:text-md overflow-x-scroll md:overflow-x-hidden mx-auto">
+    <div className="border-gray-200 rounded-sm overflow-hidden font-Titillium text-xs sm:text-sm md:text-md overflow-x-scroll overflow-y-scroll h-screen md:overflow-x-hidden mx-auto">
       <table className="w-full divide-y divide-gray-200 text-white">
         <thead className="bg-primary text-left">
           <tr>
@@ -42,7 +42,7 @@ function Coin() {
         {!fetchedCurrencies ? (
           <p>Loading...</p>
         ) : (
-          <tbody className="divide-y divide-gray-200 text-left">
+          <tbody className="divide-y divide-gray-600 text-left">
             {filteredCurrencies.map((currency) => (
               <tr key={currency.id}>
                 <td className="flex px-3 py-2 items-center">
