@@ -19,10 +19,9 @@ function Coin() {
         .includes(userSearch.trim().toLowerCase())
     );
   }
-  console.log(fetchedCurrencies);
 
   return (
-    <div className="border-gray-200 rounded-sm overflow-hidden font-Titillium text-xs sm:text-sm md:text-md overflow-x-scroll overflow-y-scroll h-screen md:overflow-x-hidden mx-auto">
+    <div className="border-gray-200 rounded-sm overflow-hidden font-Titillium text-xs sm:text-sm md:text-md overflow-x-scroll overflow-y-scroll h-screen sm:overflow-x-hidden mx-auto">
       {!isLoading ? (
         <table className="w-full divide-y divide-gray-200 text-white">
           <thead className="bg-primary text-left">
@@ -70,11 +69,11 @@ function Coin() {
                 </td>
                 {currency.price_change_percentage_24h < 0 ? (
                   <td className="px-3 py-2 text-red-500">
-                    {currency.price_change_percentage_24h.toLocaleString()} %
+                    {currency.price_change_percentage_24h.toLocaleString()}%
                   </td>
                 ) : (
                   <td className="px-3 py-2 text-green-500">
-                    {currency.price_change_percentage_24h.toLocaleString()} %
+                    {currency.price_change_percentage_24h.toLocaleString()}%
                   </td>
                 )}
                 <td className="px-3 py-2">

@@ -30,7 +30,7 @@ function App() {
       <section>
         <SearchBox />
       </section>
-      <section className="m-12">
+      <section className="m-6 md:m-12">
         <Coin />
       </section>
       <Footer />
