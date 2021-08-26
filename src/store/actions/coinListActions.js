@@ -1,14 +1,13 @@
-// API
-import axios from "axios";
-
-const url = "https://api.coingecko.com/api/v3";
-
-// constants
 import {
   COIN_LIST_REQUEST,
   COIN_LIST_SUCCESS,
   COIN_LIST_FAIL,
 } from "../constants/coinsConstants";
+
+// API
+import axios from "axios";
+
+const url = "https://api.coingecko.com/api/v3";
 
 export const coinListAction = () => async (dispatch, getState) => {
   try {
