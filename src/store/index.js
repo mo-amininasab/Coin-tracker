@@ -1,9 +1,14 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { createStore, combineReducers, applyMiddleware } from "redux";
+import { composeWithDevTools } from "redux-devtools-extension";
+import thunk from "redux-thunk";
 
-import currenciesSlice from "./currencies";
+// Reducers
+import {coinListReducer} from './reducers/coinListReducer'
 
-const store = configureStore({
-  reducer: { currencies: currenciesSlice.reducer },
+const reducer = combineReducers({
+  coins: coinListReducer,
 });
+
+const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
 
 export default store;

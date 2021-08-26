@@ -1,37 +1,50 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 // redux
-import { useDispatch } from "react-redux";
-import { currenciesActions } from "./store/currencies";
+import { useDispatch, useSelector } from "react-redux";
 
-// api
-import { fetchCoins } from "./api/index";
+// actios
+import { coinListAction } from "./store/actions/action";
 
 // components
 import Coin from "./components/Coin";
 import SearchBox from "./components/SearchBox";
 import Footer from "./components/Footer";
+import CoinsSkeleton from "./components/CoinsSkeleton";
 
 function App() {
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    const fetchCoinsFromAPI = async () => {
-      const data = await fetchCoins();
-      dispatch(currenciesActions.setCurrencies(data));
-      dispatch(currenciesActions.isLoadingHandler())
-    };
+  const [userSearch, setUserSearch] = useState("");
 
-    fetchCoinsFromAPI();
-  }, []);
+  const coinList = useSelector((state) => state.coins);
+  const { coins, loading, error } = coinList;
+
+  // filtering data.
+  let filteredCoins = "";
+  if (coins) {
+    filteredCoins = Object.values(coins).filter((coin) =>
+      coin.name.trim().toLowerCase().includes(userSearch.trim().toLowerCase())
+    );
+  }
+
+  useEffect(() => {
+    dispatch(coinListAction());
+  }, [dispatch]);
 
   return (
     <div>
       <section>
-        <SearchBox />
+        <SearchBox userSearch={userSearch} setUserSearch={setUserSearch} />
       </section>
       <section className="m-6 md:m-12">
-        <Coin />
+        {loading ? (
+          <CoinsSkeleton />
+        ) : error ? (
+          console.log(error)
+        ) : (
+          <Coin coins={filteredCoins} />
+        )}
       </section>
       <Footer />
     </div>
